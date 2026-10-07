@@ -1,0 +1,98 @@
+<h1>Hệ thống quản lý sách</h1>
+
+<div class="info">
+  <p><b>Họ tên:</b> {{fullName}}</p>
+  <p><b>MSSV:</b> {{mssv}}</p>
+  <p><b>Tiền tố mã:</b> {{prefix}}</p>
+  <p><b>VAT:</b> {{vat}}%</p>
+</div>
+
+{{#if message}}
+<div class="message">
+  {{message}}
+</div>
+{{/if}}
+
+<h2>Thêm sách</h2>
+
+<form method="POST" action="/books">
+
+  <div class="group">
+    <label>Mã sản phẩm</label>
+    <input
+      type="text"
+      name="productCode"
+      placeholder="234001"
+      required
+    >
+  </div>
+
+  <div class="group">
+    <label>Tên sách</label>
+    <input
+      type="text"
+      name="name"
+      placeholder="Tên sách"
+      required
+    >
+  </div>
+
+  <div class="group">
+    <label>Giá</label>
+    <input
+      type="number"
+      name="price"
+      min="0"
+      required
+    >
+  </div>
+
+  <button type="submit">
+    Thêm sách
+  </button>
+
+</form>
+
+<h2>Danh sách sách</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mã sản phẩm</th>
+      <th>Tên sách</th>
+      <th>Giá gốc</th>
+      <th>VAT</th>
+      <th>Giá sau thuế</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#if books.length}}
+
+      {{#each books}}
+      <tr>
+        <td>{{productCode}}</td>
+        <td>{{name}}</td>
+        <td>{{formatNumber price}} VNĐ</td>
+        <td>{{vat}}%</td>
+        <td>{{formatNumber finalPrice}} VNĐ</td>
+      </tr>
+      {{/each}}
+
+    {{else}}
+
+      <tr>
+        <td colspan="5">
+          Chưa có sách
+        </td>
+      </tr>
+
+    {{/if}}
+  </tbody>
+</table>
+
+<footer>
+  <p><b>Họ tên:</b> {Bui Hoang Hai Son}</p>
+  <p><b>MSSV:</b> {23IT234}</p>
+  <p><b>VAT áp dụng:</b> {{vat}}%</p>
+</footer>

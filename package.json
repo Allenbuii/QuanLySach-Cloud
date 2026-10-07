@@ -1,0 +1,22 @@
+{
+  "name": "quanlysach-midterm_buihoanghaison_23it234",
+  "version": "1.0.0",
+  "description": "Bai kiem tra giua ky mon Dien toan dam may - Quan ly sach",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "Bui Hoang Hai Son",
+  "license": "ISC",
+  "dependencies": {
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "express-handlebars": "^8.0.3",
+    "express-session": "^1.19.0",
+    "mongodb": "^7.7.0",
+    "mongoose": "^9.11.0"
+  }
+}
