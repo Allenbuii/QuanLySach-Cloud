@@ -6,7 +6,10 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const { MongoStore } = require("connect-mongo");
 const { engine } = require("express-handlebars");
-
+const FULL_NAME = process.env.FULL_NAME || "Bùi Hoàng Hải Sơn";
+const MSSV = process.env.MSSV || "23IT234";
+const PREFIX_CODE = MSSV.slice(-3); // Cắt 3 số cuối (234)
+const VAT_RATE = 10; // Cố định VAT 10% theo yêu cầu
 const app = express();
 const PORT = 3000;
 
